@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+    <p>OK!!</p>
+<script src="https://static.opentok.com/webrtc/v2.2/js/opentok.min.js"></script>
+
+
+  <script type="text/javascript">
+  var apiKey    = "44635812";
+  var sessionId = "2_MX40NDYzNTgxMn5-MTQyMTg2MDMxOTU0OX5UUmZha0RIN3loMGZZS1JnRkM1K1lWVEN-fg";
+  var token     = "T1==cGFydG5lcl9pZD00NDYzNTgxMiZzaWc9ZWRhODE5YWI2ZDA4ZTNhNWFlNjdmYTVlMDVmYWI3NjdjM2ZkNjA3YjpzZXNzaW9uX2lkPTJfTVg0ME5EWXpOVGd4TW41LU1UUXlNVGcyTURNeE9UVTBPWDVVVW1aaGEwUklOM2xvTUdaWlMxSm5Sa00xSzFsV1ZFTi1mZyZjcmVhdGVfdGltZT0xNDIxODYwMzE5Jm5vbmNlPTkzNzQ1ODAwNiZyb2xlPW1vZGVyYXRvcg==";
+
+  var session = OT.initSession(apiKey, sessionId);
+
+  session.on("streamCreated", function(event) {
+    session.subscribe(event.stream);
+  });
+
+  session.connect(token, function(error) {
+    var publisher = OT.initPublisher();
+    session.publish(publisher);
+  });
+ </script>
+</body>
+</html>
